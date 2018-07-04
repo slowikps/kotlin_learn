@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:54321/postgres"
+    username: postgres
+    password: test
+
+  jpa:
+    show-sql: true
+  # Import Flyway Data
+#  flyway:
+#    locations: classpath:db/migration,classpath:db/testdata
+#    skip-default-callbacks: true
+
+#logging.level:
+  #org.springframework.web: DEBUG
