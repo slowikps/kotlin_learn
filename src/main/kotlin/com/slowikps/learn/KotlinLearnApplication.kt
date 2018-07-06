@@ -1,4 +1,4 @@
-package com.slowikps.kotlin_learn
+package com.slowikps.learn
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

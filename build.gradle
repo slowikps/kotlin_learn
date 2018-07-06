@@ -56,6 +56,12 @@ dependencies {
 	compile('org.springframework.retry:spring-retry')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+
+	compile("org.springframework.boot:spring-boot-starter-log4j2")
+	compile("org.apache.logging.log4j:log4j-api:2.11.0")
+	compile("org.apache.logging.log4j:log4j-core:2.11.0")
+	compile("org.apache.logging.log4j:log4j-web:2.11.0")
+
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
@@ -65,4 +71,11 @@ dependencyManagement {
 		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
+}
+
+configurations {
+	localCompile.extendsFrom compile
+	localRuntime.extendsFrom runtime
+	all*.exclude module: "spring-boot-starter-logging"
+	all*.exclude module: "logback-classic"
 }
