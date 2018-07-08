@@ -16,6 +16,8 @@ class LoggerInterceptor : HandlerInterceptorAdapter() {
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, dataObject: Any): Boolean {
         val header: String = request.getHeader("X-Flow-Id") ?: UUID.randomUUID().toString()
         ThreadContext.put("flowId", header)
+        //Logging it once with flowId is should be enough!
+//        ThreadContext.put("principalId", "valueFromOauthToken") //Should that be stored in the context?
         ThreadContext.put("startTime", "${System.currentTimeMillis()}")
         return true
     }

@@ -1,4 +1,27 @@
-The Stack and the Map are managed per thread and are based on ThreadLocal by default.
+1) The Stack and the Map are managed per thread and are based on ThreadLocal by default.
 The Map can be configured to use an InheritableThreadLocal by setting system property log4j2.isThreadContextMapInheritable to true.
 When configured this way, the contents of the Map will be passed to child threads.
 https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Executors.html#privilegedThreadFactory()
+
+
+2) Main funciton:
+fun main(args: Array<String>) {
+    System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager")
+    ... start the app ...
+}
+
+3) Appenders are inherited additively from the logger hierarchy.
+This means, if the console appender is attached to the root logger, all child loggers will inherently use the console appender.
+If you have a child logger named Foo attached with a file appender, then Foo will use both the console and file appenders,
+unless you explicitly ask it not to do so by setting the additivity attribute to false.
+
+4) A log4j2.xml file contains the <Configuration>  root tag.
+In this root tag, you can set the **monitorInterval** attribute with a time value in seconds.
+This attribute tells Log4J 2 to detect changes to the configuration file and reconfigure itself after the monitorInterval value has elapsed since the last check.
+
+5) com.lmax:disruptor - for async logging
+
+6) RollingRandomAccessFile
+
+7) https://www.codeproject.com/Articles/42354/The-Art-of-Logging
+In summary, a log message without context information is often as useful as no log message at all!

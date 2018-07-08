@@ -3,6 +3,7 @@ package com.slowikps.learn.controller
 import io.micrometer.core.annotation.Timed
 import org.apache.logging.log4j.LogManager
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.TimeUnit
@@ -15,7 +16,7 @@ class HelloController {
     @Autowired
     lateinit var self: HelloController
 
-    @RequestMapping("/")
+    @GetMapping("/")
     @Timed
     fun index(): String {
         logger.info("Index: Before sleep1")
