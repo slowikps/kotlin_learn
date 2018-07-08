@@ -30,6 +30,7 @@ class HelloController {
         logger.info("Index: Before sleep2")
         self.sleep2(200)
         someService.expensiveOperation()
+        someService.veryExpensiveOperation()
         return "Greetings from Spring Boot!"
     }
 

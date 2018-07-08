@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component
 
 @Aspect
 @Component
-class SpringController {
+class SpringControllerAspect {
 
     private val log = LogManager.getLogger()
 
