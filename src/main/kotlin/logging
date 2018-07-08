@@ -25,3 +25,5 @@ This attribute tells Log4J 2 to detect changes to the configuration file and rec
 
 7) https://www.codeproject.com/Articles/42354/The-Art-of-Logging
 In summary, a log message without context information is often as useful as no log message at all!
+
+8)@Timed("someName")//If no value (name) then it is ignored by metrics Aspect!!

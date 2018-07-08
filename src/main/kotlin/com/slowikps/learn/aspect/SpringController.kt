@@ -3,6 +3,7 @@ package com.slowikps.learn.aspect
 import org.apache.logging.log4j.LogManager
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
+import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
@@ -30,11 +31,12 @@ class SpringController {
     }
 
 
-    @Before("inControllerPackage() && controllerAnnotations()")
-    fun timed(joinPoin: ProceedingJoinPoint) {
+    @Around("inControllerPackage() && controllerAnnotations()")
+    fun timed(joinPoin: ProceedingJoinPoint): Any {
         val start = System.currentTimeMillis()
         val result = joinPoin.proceed()
         log.info("Method invocation took: ${System.currentTimeMillis() - start}, and returned: $result")
+        return result
     }
 
     @Before("execution(* com.slowikps.learn.controller.*.sleep1(..))")
