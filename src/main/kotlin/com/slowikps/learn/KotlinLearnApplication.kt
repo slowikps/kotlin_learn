@@ -2,10 +2,12 @@ package com.slowikps.learn
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker
 import org.springframework.context.annotation.EnableAspectJAutoProxy
 
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass=true /*CGLIB*/)
+@EnableCircuitBreaker
 class KotlinLearnApplication
 
 fun main(args: Array<String>) {

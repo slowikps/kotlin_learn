@@ -1,3 +1,5 @@
+0) Looks like servlet filter should be a better place for logging filter
+
 1) The Stack and the Map are managed per thread and are based on ThreadLocal by default.
 The Map can be configured to use an InheritableThreadLocal by setting system property log4j2.isThreadContextMapInheritable to true.
 When configured this way, the contents of the Map will be passed to child threads.
